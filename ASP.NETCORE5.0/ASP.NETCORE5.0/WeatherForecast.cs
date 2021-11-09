@@ -1,6 +1,6 @@
 using System;
 
-namespace ASP.NET_CORE_5._0
+namespace ASP.NETCORE5._0
 {
     public class WeatherForecast
     {

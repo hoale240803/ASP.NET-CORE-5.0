@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASP.NET_CORE_5._0
+namespace ASP.NETCORE5._0
 {
     public class Program
     {

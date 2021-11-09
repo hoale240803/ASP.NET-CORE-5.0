@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ASP.NET_CORE_5._0
+namespace ASP.NETCORE5._0
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace ASP.NET_CORE_5._0
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ASP.NET_CORE_5._0", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ASP.NETCORE5._0", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace ASP.NET_CORE_5._0
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ASP.NET_CORE_5._0 v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ASP.NETCORE5._0 v1"));
             }
 
             app.UseHttpsRedirection();
