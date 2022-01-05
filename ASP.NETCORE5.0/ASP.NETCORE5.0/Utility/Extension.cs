@@ -16,5 +16,9 @@ namespace ASP.NETCORE5._0.Utility
                 .Select(x => x.Select(v => v.Value).ToList())
                 .ToList();
         }
+        public static bool NotNullOrEmpty<T>(this IEnumerable<T> source)
+        {
+            return source != null && source.Any();
+        }
     }
 }
