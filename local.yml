@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  proxy:
+    build:
+      context: ./nginx
+      dockerfile: local/Dockerfile
+    ports:
+      - "80:80"
+    restart: always
+    links:
+      - web
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    depends_on:
+      - proxy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:DbConnectionString=Server=remote-db-name;Database=db-name;User Id=user-name;Password=password"
+    expose:
+      - "5000"
+
+  web:
+    build:
+      context: ./client
+      dockerfile: compose/local/Dockerfile

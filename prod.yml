@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  proxy:
+    build:
+      context: ./nginx
+      dockerfile: prod/Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt/:/etc/letsencrypt/
+    links:
+      - web
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    depends_on:
+      - proxy
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - "ConnectionStrings:DbConnectionString=Server=remote-db-name;Database=db-name;User Id=user-name;Password=password"
+    expose:
+      - "5000"
+
+  web:
+    build:
+      context: ./client
+      dockerfile: compose/prod/Dockerfile
